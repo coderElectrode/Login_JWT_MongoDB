@@ -1,20 +1,15 @@
 // Store all the users in it ----->
 // DAO (Data access object layer --->which interacts with the database)
 const { v4: uuidv4 } = require('uuid');
+const User=require('./schema')
 
 let  USERS=[]
 
 const createUser=(userData)=>{
-   let existing= USERS.find(ele=>ele.username==userData.username);
-   if(existing){
-    return false;
-   }
-
-   // Generate a Id for the user 
-   userData.id=uuidv4();
-   USERS.push(userData)
-
-  return  true
+  const user=User(userData);
+  user.save().then(()=>{
+    console.log("User Created")
+  })
 
 }
 
