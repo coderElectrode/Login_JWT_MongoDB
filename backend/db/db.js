@@ -3,7 +3,7 @@
 const { v4: uuidv4 } = require('uuid');
 const User=require('./schema')
 
-let  USERS=[]
+
 
 const createUser=(userData)=>{
   const user=User(userData);

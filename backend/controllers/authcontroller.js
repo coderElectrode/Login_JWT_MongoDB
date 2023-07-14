@@ -1,10 +1,15 @@
 const {createUser}=require("../db/db");
 const  jwt = require('jsonwebtoken');
+const fs= require('fs')
 
 
 const signup=(req,res,next)=>{
-
-    const user=req.body;
+   
+    const user={ username:req.body.username,
+        name:req.body.name,
+        password:req.body.password,
+        file:req.body.file,
+    }
 
    let result= createUser(user)
    if(result){
