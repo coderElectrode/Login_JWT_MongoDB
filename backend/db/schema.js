@@ -3,7 +3,8 @@ const User=new mongoose.Schema({
     username:String,
     name:String,
     password:String,
-    file:String,
-});
+    image:[{data:Buffer, contentType:String}],
+    
+ });
 
 module.exports=mongoose.model('User',User);

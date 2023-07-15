@@ -3,12 +3,12 @@ const multer =require('multer')
 
 const upload=multer({
     storage:multer.diskStorage({
-        destination:(req,file,cb)=>{ cb(null,"Uploads")},
-        filename:(req,file,cb)=>{
-            cb(null,file.filename+".jpg")
+        destination:function(req,file,cb){ cb(null,"Uploads")},
+        filename:function(req, file ,cb){
+            cb(null,file.fieldname+Date.now()+".jpg")
         }
 
     })
-}).single('testFile');
+}).single("testFile");
 
 module.exports=upload;

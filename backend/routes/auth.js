@@ -5,6 +5,7 @@ const {encryptPassword,checkPassword}=require("../middlewares/middleware");
 const upload=require('../Multer/multer')
 
 router.post("/signup",encryptPassword,upload,signup)
+
 router.post("/signin",checkPassword,login)
 
 

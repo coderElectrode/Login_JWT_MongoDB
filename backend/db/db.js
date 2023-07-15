@@ -6,7 +6,8 @@ const User=require('./schema')
 
 
 const createUser=(userData)=>{
-  const user=User(userData);
+    //console.log("DB:",userData)
+  const user=new User(userData);
   user.save().then(()=>{
     console.log("User Created")
   })

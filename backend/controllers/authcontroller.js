@@ -1,15 +1,26 @@
 const {createUser}=require("../db/db");
 const  jwt = require('jsonwebtoken');
-const fs= require('fs')
+var fs=require('fs')
+const { readFileSync, writeFileSync } =require('fs')
+
+
 
 
 const signup=(req,res,next)=>{
-   
+    var img=fs.readFileSync(req.file.path);
+    var encod_img=img.toString('base64');
+
     const user={ username:req.body.username,
+
         name:req.body.name,
         password:req.body.password,
-        file:req.body.file,
+        image:{
+            data:Buffer.from(encod_img,'base64'),
+            contentType:req.file.mimetype,
+        },
     }
+
+    //console.log(user);
 
    let result= createUser(user)
    if(result){
