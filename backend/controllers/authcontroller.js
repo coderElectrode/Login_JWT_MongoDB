@@ -18,7 +18,22 @@ const addImg = (req, res, next) => {
         }
     
    
-    let result = addImgtoDB(Image);
+  let result = addImgtoDB(Image);
+    console.log("Result:",result);
+    if (result) {
+        res.json({
+            status: "Success",
+            messag: "File Uploaded "
+
+        })
+
+    } else {
+        // if you invoke next like this anywhere in your code 
+        // it will just hit the error middlewar
+        // throw new Error("Errorororo")
+        next(new Error("Not Added"))
+
+    }
 
 }
 

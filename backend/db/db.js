@@ -11,8 +11,11 @@ const addImgtoDB=(image)=>{
               image: image
           }
       }).then(()=>{
+       
         console.log("File Uploaded ")
       })
+
+      return true;
   
   }
 
