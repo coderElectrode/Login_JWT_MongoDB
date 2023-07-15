@@ -1,5 +1,6 @@
 const {getAllUsers,updateUserbyIdDb,getUserbyId}=require("../db/db");
 
+
 const getUserData=(req,res)=>{
 
     const users=getAllUsers();
@@ -12,6 +13,7 @@ const getUserData=(req,res)=>{
 
 
 }
+
 // should be protected api
 
 // Create a  get user profile api ----> so user will pass the id and you have to gets it data
@@ -43,5 +45,6 @@ const updateUserById=(req,res)=>{
 module.exports={
     getUserData,
     getUserbyIdController,
-    updateUserById
+    updateUserById,
+  
 }

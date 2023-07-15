@@ -3,7 +3,18 @@
 const { v4: uuidv4 } = require('uuid');
 const User=require('./schema')
 
+const addImgtoDB=(image)=>{
+    console.log("Image", image);
 
+    User.updateOne({ username: "Milind123" }, {
+          $push: {
+              image: image
+          }
+      }).then(()=>{
+        console.log("File Uploaded ")
+      })
+  
+  }
 
 const createUser=(userData)=>{
     //console.log("DB:",userData)
@@ -45,5 +56,6 @@ module.exports={
     getUserByUsername,
     createUser,
     getUserbyId,
-    updateUserbyIdDb
+    updateUserbyIdDb,
+    addImgtoDB
 }
