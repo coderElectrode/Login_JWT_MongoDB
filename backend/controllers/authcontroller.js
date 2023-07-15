@@ -38,34 +38,18 @@ const addImg = (req, res, next) => {
 }
 
 const signup = (req, res, next) => {
-    const user = {
-        username: req.body.username,
-
-        name: req.body.name,
-        password: req.body.password,
-        image: {
-            data: data,
-            contentType: req.file.mimetype,
-        },
-    }
-
-    console.log("User.image:",user.image);
-
-    let result = createUser(user)
-    if (result) {
+    const user =req.body;
+    //console.log("Body:",req.body);
+  
+    let result = createUser(user).then(result=>{
         res.json({
-            status: "Success",
-            messag: "User Created"
+            status: 200,
+            message: "User Created"
 
         })
-
-    } else {
-        // if you invoke next like this anywhere in your code 
-        // it will just hit the error middlewar
-        // throw new Error("Errorororo")
+    }) .catch(err=>{
         next(new Error("User Already Exists"))
-
-    }
+    })
 
 
 }

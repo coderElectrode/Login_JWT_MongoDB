@@ -111,7 +111,8 @@ h2 {
 }
 
 .showcase-form input[type='text'],
-.showcase-form input[type='password'] {
+.showcase-form input[type='password'],
+.showcase-form input[type='email']  {
   border: 0;
   border-bottom: 1px solid red;
   width: 100%;
@@ -135,4 +136,23 @@ h2 {
 }
 .btn:hover {
   transform: scale(0.98);
+}
+
+
+/*------------------------------Contact.Jsx CSS ----------------------------------------*/
+ #contact_container{
+  height:100vh;
+  width: 100%;
+  margin-top:0px;
+  padding-top: 0px;
+  background-color: #047aed;
+
+
+}
+
+#contact_container h1{
+padding-top: 0px;
+margin-top: 0px;
+text-align: center;
+color: white;
 }

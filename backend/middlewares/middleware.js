@@ -8,18 +8,18 @@ const errorMiddleware=(err,req,res,next)=>{
   //  console.log(err);
     // We will send error from here
     res.json({
-        message:"Failed",
-        error:err.toString()
+        message:err.toString(),
+        status:400
     })
 
 }
 
 const encryptPassword=(req,res,next)=>{
-    const saltRounds = 10;
+    const saltRounds = 2;
 
-    bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+    bcrypt.hash(req.body.Password, saltRounds, function(err, hash) {
         //console.log(hash);
-        req.body.password=hash
+        req.body.Password=hash
         next();
     });
 
