@@ -42,9 +42,11 @@ const getAllUsers = () => {
     return USERS;
 }
 
-const getUserByUsername = (username) => {
+const getUserByUsername = async(email) => {
 
-    return USERS.find(ele => ele.username == username);
+ const usr=  await User1.findOne({Email:email});
+//  console.log("User From DB",usr)
+ return usr;
 
 }
 

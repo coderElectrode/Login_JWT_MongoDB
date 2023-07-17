@@ -26,21 +26,23 @@ const encryptPassword=(req,res,next)=>{
 
 }
 
-const checkPassword=(req,res,next)=>{
-    const user=getUserByUsername(req.body.username);
-    if(user){
-        bcrypt.compare(req.body.password, user.password, function(err, result) {
-            if(!result){
+const checkPassword=async(req,res,next)=>{
+    const user= await getUserByUsername(req.body.Email);
+    //console.log("User From Middleware:",user);
+    
+     if(user){
+       bcrypt.compare(req.body.Password, user.Password, function(err, result) {
+           if(!result){
                 next(new Error("Please enter correct username or password"))
             }else{
-                next();
-            }
+                 next();
+         }
         
         });
 
-    }else{
-        next(new Error("User Not found"))
-    }
+     }else{
+         next(new Error("User Not found"))
+     }
   
 
 

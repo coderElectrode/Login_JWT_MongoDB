@@ -17,6 +17,7 @@ const Navbar = () => {
     const signUp=()=>{
         navigate('/Signup')
     }
+  
   return (
     <div className="navbar">
                 <div className="container flex">
@@ -35,6 +36,7 @@ const Navbar = () => {
                             <li>
                                 <a onClick={signUp}>SignUp</a>
                             </li>
+                            
                         </ul>
                     </nav>
                 </div>

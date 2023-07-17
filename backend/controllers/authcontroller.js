@@ -60,14 +60,13 @@ const login = (req, res) => {
 
     // issuing the jwt 
     const token = jwt.sign({ username: req.body.username }, process.env.JWTKEY);
+    console.log(token);
     res.json({
         status: "Success",
-        token: token,
-        message: "User Logged In"
+         token: token,
+         message: "User Logged In"
 
-    })
-
-
+     })
 
 }
 

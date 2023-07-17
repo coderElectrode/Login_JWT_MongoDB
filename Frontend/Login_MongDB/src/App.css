@@ -156,3 +156,20 @@ margin-top: 0px;
 text-align: center;
 color: white;
 }
+
+
+/* --------------------------------gallary CSS--------------------- */
+.file_upload_input {
+  height: 5rem;
+  width: 100%;
+  
+  
+}
+
+.showroom_main{  
+  height: 50rem;
+  width: 100%;
+  /* background-color: aqua; */
+  background-image: url('../public/Gback.jpg');
+  background-repeat:no-repeat;
+}
