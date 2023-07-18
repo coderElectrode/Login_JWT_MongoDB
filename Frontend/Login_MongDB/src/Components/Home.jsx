@@ -3,9 +3,11 @@ import Navbar from './Navbar'
 import Footer from './footer'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
-
+import { useSelector, useDispatch } from 'react-redux'
+import { setUserState,getUserData } from '../Store/userSlice';
+import user from '../Store/userStore'
 const Home = () => {
-
+    const dispatch=useDispatch()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate=useNavigate();
@@ -21,13 +23,19 @@ const Home = () => {
             }
         }
         await axios.post(url, body, customConfig).then(data=>{
+            console.log("User Data:",data)
             if(data.data.status==400){
                 setEmail('');
                 setPassword('');
                 return alert(data.data.message);
             }
-            else{
-                navigate('/galary');
+            else{ 
+                if(data.data.token){
+                   
+                    dispatch(setUserState(data.data));
+                    navigate('/galary');
+                }
+                
             }
         })
 

@@ -61,9 +61,11 @@ const login = (req, res) => {
     // issuing the jwt 
     const token = jwt.sign({ username: req.body.username }, process.env.JWTKEY);
     console.log(token);
+    console.log("Check Pass:",req.datafrom_checkPass)
     res.json({
         status: "Success",
          token: token,
+         userdata: req.datafrom_checkPass,
          message: "User Logged In"
 
      })

@@ -38,8 +38,8 @@ const createUser = (userData) => {
 
 }
 
-const getAllUsers = () => {
-    return USERS;
+const getAllUsers = (email) => {
+    return User1.find({Email:email});
 }
 
 const getUserByUsername = async(email) => {

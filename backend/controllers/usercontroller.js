@@ -3,7 +3,8 @@ const {getAllUsers,updateUserbyIdDb,getUserbyId}=require("../db/db");
 
 const getUserData=(req,res)=>{
 
-    const users=getAllUsers();
+    const users=getAllUsers(req.headers.email);
+    //console.log("DB Usres")
 
     res.json({
         message:"Success",

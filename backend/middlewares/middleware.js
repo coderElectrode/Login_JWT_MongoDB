@@ -35,6 +35,7 @@ const checkPassword=async(req,res,next)=>{
            if(!result){
                 next(new Error("Please enter correct username or password"))
             }else{
+                req.datafrom_checkPass=user;
                  next();
          }
         
